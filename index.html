@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>ToDo List Vue</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- JS -->
+  <script src="js/script.js"></script>
+</head>
+<body>
+
+  <div id="app" class="container">
+    <div class="row">
+
+      <!-- Logo -->
+      <div class="logo">
+        <img src="img/logo.png" alt="Immagine Logo Boolean">
+      </div>
+
+      <!-- Parte di input e button -->
+      <div class="new-todo">
+        <input v-model='newTodo' @keyup.enter='createNewTodo' class="todo" type="text">
+        <button @click='createNewTodo' type="button">Aggiungi</button>
+      </div>
+
+      <!-- Lista delle cose da fare -->
+      <div class="todos-container">
+        <ul v-if='todos.length > 0'>
+          <li v-for='(todo, index) in todos' class="todo">
+            {{ todo }}
+            <i @click='clickDeleteTodo(index)' class="fas fa-times"></i>
+          </li>
+        </ul>
+        <h2 v-else>Non hai cose da fare</h2>
+      </div>
+
+
+
+    </div>
+  </div>
+</body>
+</html>
